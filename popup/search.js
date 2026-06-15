@@ -132,11 +132,11 @@ function switchToTab(tabId) {
 }
 
 function onKeydown(e) {
-  if (e.key === 'ArrowDown' || (e.ctrlKey && e.key === 'n')) {
+  if (e.key === 'ArrowDown' || (e.ctrlKey && e.key === 'j')) {
     e.preventDefault();
     selectedIndex = Math.min(selectedIndex + 1, filteredTabs.length - 1);
     updateSelected();
-  } else if (e.key === 'ArrowUp' || (e.ctrlKey && e.key === 'p')) {
+  } else if (e.key === 'ArrowUp' || (e.ctrlKey && e.key === 'k')) {
     e.preventDefault();
     selectedIndex = Math.max(selectedIndex - 1, 0);
     updateSelected();
