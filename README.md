@@ -13,7 +13,3 @@ Type to search — results are scored by title matches, URL matches, domain, fuz
 - Use `^N`/`^P` (or arrow keys) to select a result
 - Press `Enter` to switch to that tab
 - Press `Esc` to close
-
-## Install
-
-See [releases](https://github.com/anomalyco/opencode/issues) for the signed `.xpi` or load temporarily via `about:debugging`.
