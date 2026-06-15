@@ -6,7 +6,18 @@ let activeTabId = null;
 const input = document.getElementById('search-input');
 const resultsEl = document.getElementById('results');
 
+function tryFocus() {
+  input.focus({preventScroll: true});
+  if (document.activeElement !== input) {
+    requestAnimationFrame(() => input.focus({preventScroll: true}));
+  }
+}
+
 (async function init() {
+  tryFocus();
+  input.addEventListener('input', onSearch);
+  input.addEventListener('keydown', onKeydown);
+
   const tabs = await browser.tabs.query({ currentWindow: true });
   const active = await browser.tabs.query({ currentWindow: true, active: true });
   activeTabId = active[0]?.id ?? null;
@@ -24,10 +35,7 @@ const resultsEl = document.getElementById('results');
 
   filteredTabs = [...allTabs];
   render();
-
-  input.focus();
-  input.addEventListener('input', onSearch);
-  input.addEventListener('keydown', onKeydown);
+  tryFocus();
 })();
 
 function onSearch() {

@@ -9,14 +9,19 @@
 <body>
   <div class="container">
     <div class="search-bar">
-      <span class="search-icon">&#x1F50D;</span>
-      <input type="text" id="search-input" placeholder="Search tabs..." autofocus spellcheck="false">
+      <div class="search-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </div>
+      <input type="text" id="search-input" placeholder="Search tabs..." spellcheck="false">
       <span class="shortcut-hint">Ctrl+Shift+Space</span>
     </div>
     <div id="results" class="results"></div>
     <div class="footer">
       <span><kbd>^J</kbd> <kbd>^K</kbd> navigate</span>
-      <span><kbd>Enter</kbd> switch</span>
+      <span><kbd>↵</kbd> switch</span>
       <span><kbd>Esc</kbd> close</span>
     </div>
   </div>
