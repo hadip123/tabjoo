@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TabJoo — Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="page">
+    <header class="page-header">
+      <div class="header-top">
+        <h1>Settings</h1>
+        <div class="header-actions">
+          <button id="resetBtn" class="btn btn-ghost">Reset to defaults</button>
+          <button id="saveBtn" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+      <p class="header-sub">Customize TabJoo search, appearance, and behavior</p>
+    </header>
+
+    <form id="settingsForm" class="settings-form">
+      <section class="section">
+        <h2 class="section-title">Appearance</h2>
+        <div class="field-group">
+          <div class="field">
+            <label class="field-label" for="theme">Theme</label>
+            <select id="theme" name="theme">
+              <option value="auto">Auto (follow system)</option>
+              <option value="dark">Dark</option>
+              <option value="light">Light</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label" for="accentColor">Accent color</label>
+            <div class="color-wrap">
+              <input type="color" id="accentColor" name="accentColor" value="#a78bfa">
+              <input type="text" id="accentColorText" class="color-text" maxlength="7" value="#a78bfa">
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="density">Density</label>
+            <select id="density" name="density">
+              <option value="normal">Normal</option>
+              <option value="compact">Compact</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label" for="popupWidth">Popup width</label>
+            <div class="range-wrap">
+              <input type="range" id="popupWidth" name="popupWidth" min="320" max="800" step="10" value="520">
+              <span id="popupWidthVal" class="range-val">520px</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Search</h2>
+        <div class="field-group">
+          <div class="field">
+            <label class="field-label" for="searchMode">Search mode</label>
+            <select id="searchMode" name="searchMode">
+              <option value="balanced">Balanced (all factors)</option>
+              <option value="title">Title-first</option>
+              <option value="url">URL-first</option>
+              <option value="recency">Recency-first</option>
+              <option value="fuzzy">Fuzzy-match preferred</option>
+            </select>
+            <p class="field-desc">How results are scored and ranked</p>
+          </div>
+          <div class="field">
+            <label class="field-label" for="maxResults">Max results shown</label>
+            <div class="range-wrap">
+              <input type="range" id="maxResults" name="maxResults" min="10" max="100" step="5" value="50">
+              <span id="maxResultsVal" class="range-val">50</span>
+            </div>
+          </div>
+          <div class="field field-check">
+            <label class="check-label">
+              <input type="checkbox" id="boostPinned" name="boostPinned" checked>
+              <span>Boost pinned tabs</span>
+            </label>
+          </div>
+          <div class="field field-check">
+            <label class="check-label">
+              <input type="checkbox" id="boostAudible" name="boostAudible" checked>
+              <span>Boost audible tabs</span>
+            </label>
+          </div>
+          <div class="field field-check">
+            <label class="check-label">
+              <input type="checkbox" id="boostRecency" name="boostRecency" checked>
+              <span>Boost recently accessed tabs</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Behavior</h2>
+        <div class="field-group">
+          <div class="field field-check">
+            <label class="check-label">
+              <input type="checkbox" id="showFooter" name="showFooter" checked>
+              <span>Show keyboard shortcut hints in footer</span>
+            </label>
+          </div>
+          <div class="field field-check">
+            <label class="check-label">
+              <input type="checkbox" id="disableMouse" name="disableMouse">
+              <span>Disable mouse entirely (keyboard-only navigation)</span>
+            </label>
+          </div>
+          <div class="field">
+            <label class="field-label" for="navStyle">Navigation keys</label>
+            <select id="navStyle" name="navStyle">
+              <option value="arrows+vim">Arrows + Vim (<kbd>^J</kbd> / <kbd>^K</kbd>)</option>
+              <option value="arrows">Arrows only</option>
+              <option value="vim">Vim (<kbd>^J</kbd> / <kbd>^K</kbd>) only</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Keybindings</h2>
+        <p class="field-desc section-desc">Click a binding, then press the new key combination</p>
+        <div class="field-group">
+          <div class="field">
+            <label class="field-label">Navigate up</label>
+            <input type="hidden" name="keyUp" value="ArrowUp">
+            <button type="button" class="key-recorder" data-key="keyUp">ArrowUp</button>
+          </div>
+          <div class="field">
+            <label class="field-label">Navigate down</label>
+            <input type="hidden" name="keyDown" value="ArrowDown">
+            <button type="button" class="key-recorder" data-key="keyDown">ArrowDown</button>
+          </div>
+          <div class="field">
+            <label class="field-label">Select tab</label>
+            <input type="hidden" name="keySelect" value="Enter">
+            <button type="button" class="key-recorder" data-key="keySelect">Enter</button>
+          </div>
+          <div class="field">
+            <label class="field-label">Close popup</label>
+            <input type="hidden" name="keyClose" value="Escape">
+            <button type="button" class="key-recorder" data-key="keyClose">Escape</button>
+          </div>
+          <div class="field">
+            <label class="field-label">Navigate up (alt)</label>
+            <input type="hidden" name="keyUpAlt" value="k">
+            <button type="button" class="key-recorder" data-key="keyUpAlt"><kbd>Ctrl</kbd> + k</button>
+          </div>
+          <div class="field">
+            <label class="field-label">Navigate down (alt)</label>
+            <input type="hidden" name="keyDownAlt" value="j">
+            <button type="button" class="key-recorder" data-key="keyDownAlt"><kbd>Ctrl</kbd> + j</button>
+          </div>
+        </div>
+        <p class="field-desc">Alt bindings require the <kbd>Ctrl</kbd> modifier. The modifier is auto-applied.</p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Popup Shortcut</h2>
+        <div class="field-group">
+          <div class="field">
+            <label class="field-label">Open popup</label>
+            <input type="hidden" name="openShortcut" value="Ctrl+Shift+Space">
+            <button type="button" class="key-recorder" data-key="openShortcut" data-command="true">Ctrl+Shift+Space</button>
+            <p class="field-desc">Changes the browser-level shortcut in <code>about:addons</code>. Must include a modifier key (<kbd>Ctrl</kbd>, <kbd>Alt</kbd>, or <kbd>Shift</kbd>).</p>
+          </div>
+        </div>
+      </section>
+    </form>
+
+    <footer class="page-footer">
+      <p>Changes saved to <code>browser.storage.sync</code>. Open the popup to preview.</p>
+    </footer>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

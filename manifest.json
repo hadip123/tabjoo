@@ -5,8 +5,13 @@
   "description": "Quickly search and switch between open tabs",
   "permissions": [
     "tabs",
-    "activeTab"
+    "activeTab",
+    "storage"
   ],
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
   "background": {
     "scripts": ["background.js"]
   },
