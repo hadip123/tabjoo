@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "TabJoo",
+  "version": "1.0",
+  "description": "Quickly search and switch between open tabs",
+  "permissions": [
+    "tabs",
+    "activeTab"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_popup": "popup/search.html",
+    "default_title": "TabJoo (Ctrl+Shift+Space)",
+    "default_icon": {
+      "48": "icons/icon.svg"
+    }
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Space",
+        "mac": "MacCtrl+Shift+Space"
+      },
+      "description": "Search open tabs"
+    }
+  },
+  "icons": {
+    "48": "icons/icon.svg"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "tabjoo@yandhi.lol",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}
